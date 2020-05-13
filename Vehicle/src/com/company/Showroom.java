@@ -64,9 +64,9 @@ public class Showroom extends vehiclefactory {
             }
             else{
 
-                if(Vehicle.getVehicleType().equals("Sports")){
+                if(Vehicle.getVehicleType().equals("sports")){
                     if(expectedVisitor>=50){
-                        expectedVisitor-=20;
+                        expectedVisitor -= 20;
                     }
                 }
 

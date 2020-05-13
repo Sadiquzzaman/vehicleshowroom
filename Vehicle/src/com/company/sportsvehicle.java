@@ -6,6 +6,6 @@ public class sportsvehicle extends vehicle {
         super.setEnginetype("oil");
         super.setEnginepower("turbo");
         super.setTiresize(tiresize);
-        super.setVehicleType("Sports");
+        super.setVehicleType("sports");
     }
 }
