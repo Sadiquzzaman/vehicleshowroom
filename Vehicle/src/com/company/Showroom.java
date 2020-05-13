@@ -12,6 +12,7 @@ public class Showroom extends vehiclefactory {
             Scanner input =new Scanner(System.in);
             System.out.println("Enter a model number for a normal vehicle: ");
             int modelNumber = input.nextInt();
+            input.nextLine();
             System.out.println("Enter a enginetype for a normal vehicle: ");
             String engineType = input.nextLine();
             System.out.println("Enter enginepower for a normal vehicle: ");
@@ -39,12 +40,9 @@ public class Showroom extends vehiclefactory {
         }
     }
         HashMap<Integer, vehicle> map = new HashMap<>();
-        int expectedVisitor = 30;
+        private static Integer expectedVisitor = 30;
         void Addtoshowroom(int modelNumber, vehicle Vehicle){
             map.put(modelNumber,Vehicle);
-        }
-        vehicle Deletetoshowroom(int modelNumber){
-            return map.remove(modelNumber);
         }
         void getDetails(){
             for (Map.Entry<Integer, vehicle> entry : map.entrySet()) {
@@ -52,8 +50,10 @@ public class Showroom extends vehiclefactory {
                 System.out.println("Engine Type: " + entry.getValue().getEnginetype() + "\n");
                 System.out.println("Engine Power: " + entry.getValue().getEnginepower() + "\n");
                 System.out.println("Tire Size: " + entry.getValue().getTiresize() + "\n");
-                System.out.println("Vehicle Type: " + entry.getValue().getVehicleType() + "\n\n");
+                System.out.println("Vehicle Type: " + entry.getValue().getVehicleType() + "\n");
             }
+
+            System.out.println("Expected Visitors: " + expectedVisitor + "\n\n");
 
         }
         vehicle deleteFromShowroom(Integer modelNumber){
@@ -63,12 +63,14 @@ public class Showroom extends vehiclefactory {
                 return null;
             }
             else{
-                if(Vehicle.getVehicleType().equals("sports")){
+
+                if(Vehicle.getVehicleType().equals("Sports")){
                     if(expectedVisitor>=50){
                         expectedVisitor-=20;
                     }
                 }
+
+                return map.remove(modelNumber);
             }
-            return map.remove(modelNumber);
         }
 }
